@@ -6,7 +6,7 @@ import Task from '../service/task';
 export default function TodoList() {
 	const backend = new TodoConnection('http://localhost:3333/todo');
 
-	const taskInputRef = useRef();
+	const taskInputRef = useRef<HTMLInputElement>(null);
 	const [list, setList] = useState([]);
 
 	function updateList() {
@@ -64,7 +64,10 @@ export default function TodoList() {
 				onSubmit={async (e) => {
 					e.preventDefault();
 
-					await backend.newTask(taskInputRef.current.value);
+					const newTask = taskInputRef.current?.value;
+					if (!newTask) return;
+
+					await backend.newTask(newTask);
 					taskInputRef.current.value = '';
 
 					updateList();

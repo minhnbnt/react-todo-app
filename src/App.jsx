@@ -2,7 +2,7 @@ import reactLogo from '/react.svg';
 import viteLogo from '/vite.svg';
 import TodoList from './components/todoList';
 
-function App() {
+export default function App() {
 	return (
 		<>
 			<div>
@@ -27,5 +27,3 @@ function App() {
 		</>
 	);
 }
-
-export default App;
