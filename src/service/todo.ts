@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default class Todo {
+export default class TodoConnection {
 	constructor(private backendUrl: string) {}
 
 	async getTask() {
